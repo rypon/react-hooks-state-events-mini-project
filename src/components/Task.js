@@ -1,11 +1,25 @@
 import React from "react";
 
-function Task() {
+//2.1.0
+//give function Task() props, {text, category}
+
+//2.1.1
+//in the JSX, have the label tag receive {category} and text tag receive {text}
+//they should render on the page for each Task
+
+//2.2.0
+//to delete a task, an onClick handler is needed on the function
+
+
+function Task({ text, category, handleDelete }) {
+
+
+
   return (
     <div className="task">
-      <div className="label">CATEGORY HERE</div>
-      <div className="text">TEXT HERE</div>
-      <button className="delete">X</button>
+      <div className="label">{category}</div>
+      <div className="text">{text}</div>
+      <button className="delete" onClick={handleDelete}>X</button>
     </div>
   );
 }
