@@ -19,18 +19,18 @@ import Task from "./Task";
 
 function TaskList({ tasks }) {
 
-  const [curList, setCurList] = useState(tasks)
+  const [currentTaskList, setCurrentTaskList] = useState(tasks)
 
   function handleDelete(e) {
-    console.log(e)
-    let selectedValue = e.target.parentElement.children[1].innerText
-    let updatedTaskList = curList.filter(task => task.text !== selectedValue)
+    const selectedValue = e.target.parentElement.children[1].innerText
+    const updatedTaskList = currentTaskList.filter(task => task.text !== selectedValue)
+
+    setCurrentTaskList(updatedTaskList)
     console.log(updatedTaskList)
-    setCurList(updatedTaskList)
   }
 
   function renderTasks() {
-    return tasks.map((task) => {
+    return currentTaskList.map(task => {
       return (
         <Task key={task.text} text={task.text} category={task.category} handleDelete={handleDelete} />
       );
